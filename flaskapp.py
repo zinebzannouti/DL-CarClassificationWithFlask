@@ -13,7 +13,7 @@ class FixedDropout(layers.Dropout):
         noise_shape=[symbolic_shape[axis] if shape is None else shape
                      for axis,shape in enumerate(self.noise_shape)]
         return tuple(noise_shape)
-model = load_model('C:/Users/User/Downloads/Efficientnet_model.h5',custom_objects={'FixedDropout':FixedDropout(rate=0.4)})
+model = load_model('/home/ec2-user/DL-CarClassificationWithFlask/Efficientnet_model.h5',custom_objects={'FixedDropout':FixedDropout(rate=0.4)})
 
 model.make_predict_function()
 dic = {0:'AM General Hummer SUV 2000',
