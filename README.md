@@ -22,3 +22,8 @@ python3 -m pip install flask
 ```
 python3 -m pip install tensorflow
 ```
+- install PILLOW 
+
+```
+python3 -m pip install PILLOW
+```
