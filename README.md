@@ -27,3 +27,24 @@ python3 -m pip install tensorflow
 ```
 python3 -m pip install PILLOW
 ```
+- go to DL-CarClassificationWithFlask
+```
+cd DL-CarClassificationWithFlask
+```
+- Create a dirrectory called static 
+```
+mkdir static
+```
+- copy your saved model from local to ec2 instance (open a new terminal)
+```
+ scp -i "training.pem" model.h5 ec2-user@ec2-3-90-21-179.compute-1.amazonaws.com:/home/ec2-user/DL-CarClassificationWithFlask
+```
+- Execute the flaskapp.py 
+
+```
+ python3 flaskapp.py
+```
+
+- Go to http://127.0.0.1:5000/
+
+
