@@ -45,6 +45,6 @@ mkdir static
  python3 flaskapp.py
 ```
 
-- Go to http://127.0.0.1:5000/
+- Go to http://EC2-ip-address:5000/
 
 
