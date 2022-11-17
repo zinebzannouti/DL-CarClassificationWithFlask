@@ -2,6 +2,8 @@ from flask import Flask, render_template, request
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
 import numpy as np
+import requests
+from PIL import Image
 import ast
 from tensorflow.keras import backend,layers
 app=Flask(__name__,template_folder='templates')
@@ -13,7 +15,7 @@ class FixedDropout(layers.Dropout):
         noise_shape=[symbolic_shape[axis] if shape is None else shape
                      for axis,shape in enumerate(self.noise_shape)]
         return tuple(noise_shape)
-model = load_model('/home/ec2-user/DL-CarClassificationWithFlask/model.h5',custom_objects={'FixedDropout':FixedDropout(rate=0.4)})
+model = load_model('/home/ec2-user/DL-CarClassificationWithFlask/Efficientnet_model.h5',custom_objects={'FixedDropout':FixedDropout(rate=0.4)})
 
 model.make_predict_function()
 # reading the data from the file
@@ -42,8 +44,16 @@ def about_page():
 @app.route("/submit", methods = ['GET', 'POST'])
 def get_output():
         if request.method == 'POST':
-                img = request.files['my_image']
+                if request.args.get('img_url', ""):
+                        imgUrl = request.args.get('img_url', "")
+                        url = Image.open(requests.get(imgUrl, stream = True).raw)
+                        url.save('prediction.png')
+                        url_path ="static/" +url.filename
+                        url.save(url_path)
+                        a=url.filename
+                        m = predict_label(url_path)
 
+                img = request.files['my_image']
                 img_path ="static/" +img.filename
                 img.save(img_path)
                 a=img.filename
