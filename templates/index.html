@@ -8,11 +8,12 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="js/submit.js"></script>
 </head>
 <body > 
   <div class="container">
-    <h1 class="jumbotron bg-primary">Car Model and Make Classification</h1>
-    <form class="form" action="/submit" method="post" enctype="multipart/form-data">
+    <h1 class="jumbotron bg-primary">Car Model,Make and Year Classification</h1>
+    <form class="form" action="#" method="post" name="form_name" id="form_id" enctype="multipart/form-data">
       <div class="form-group">
         <label class="d-flex flex-row" for="pwd">Upload Your Image :</label>         
           <input type="file" class="form-control form-control-sm rounded" placeholder="Hours Studied"  name="my_image" id="pwd">
@@ -28,6 +29,8 @@
           class="form-control form-control-sm rounded"
           name="text"
           placeholder="Paste car link"
+          type="button"  value="" onclick="submit_link()"
+          id="car_link"
         >
       </div>      
           <button type="submit" class="btn rounded btn-success" >Upload</button>
@@ -41,5 +44,6 @@
 	  {% endif %}
 
   </div>
+
 </body>
 </html>
