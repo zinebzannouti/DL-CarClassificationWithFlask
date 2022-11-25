@@ -6,7 +6,7 @@ sudo yum install git -y
 ```
 - Clone the repository
 ```
- git clone https://github.com/zinebzannouti/DL-CarClassificationWithFlask
+ git clone https://github.com/zinebzannouti/CNN-CASE-STUDY
 ```
 - install pip
 ```
@@ -39,6 +39,14 @@ mkdir static
 ```
  scp -i "training.pem" model.h5 ec2-user@ec2-3-90-21-179.compute-1.amazonaws.com:/home/ec2-user/DL-CarClassificationWithFlask
 ```
+
+- Add the flaskapp.py that you have created :
+
+```
+ nano flaskapp.py
+```
+- boutton droit pour coller et ctrl+x -> y -> Entrer pour enregistrer
+
 - Execute the flaskapp.py 
 
 ```
