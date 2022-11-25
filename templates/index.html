@@ -1,49 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-   <header  style="background-image: url('https://rare-gallery.com/uploads/posts/1056251-sunlight-lights-car-vehicle-photography-sports-car-Ferrari-white-cars-Garage-wheel-supercar-land-vehicle-automotive-design-automobile-make.jpg')">
-  <title>Car Model,Make and Year Classification</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <script src="/submit.js"></script>
+  <header
+    style="background-image: url('https://rare-gallery.com/uploads/posts/1056251-sunlight-lights-car-vehicle-photography-sports-car-Ferrari-white-cars-Garage-wheel-supercar-land-vehicle-automotive-design-automobile-make.jpg')">
+    <title>Car Model,Make and Year Classification</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
-<body > 
+
+<body>
   <div class="container">
     <h1 class="jumbotron bg-primary">Car Model,Make and Year Classification</h1>
-    <form class="form" action="#" method="post" name="form_name" id="form_id" enctype="multipart/form-data">
+    <form class="form" action="/link" method="post" enctype="multipart/form-data" name="form_name" id="form_id">
       <div class="form-group">
-        <label class="d-flex flex-row" for="pwd">Upload Your Image :</label>         
-          <input type="file" class="form-control form-control-sm rounded" placeholder="Hours Studied"  name="my_image" id="pwd">
+        <label class="d-flex flex-row" for="pwd">Upload Your Image :</label>
+        <input type="file" class="form-control form-control-sm rounded" placeholder="Hours Studied" name="my_image"
+          id="pwd">
 
       </div>
       <div class="form-group">
-        <label
-          class="d-flex flex-row"
-        >
+        <label class="d-flex flex-row">
           Use Link
         </label>
-          <input
-          class="form-control form-control-sm rounded"
-          name="text"
-          placeholder="Paste car link"
-          type="button"  value="" onclick="submit_link()"
-          id="car_link"
-        >
-      </div>      
-          <button type="submit" class="btn rounded btn-success" >Upload</button>
+        <input class="form-control form-control-sm rounded" name="link" placeholder="Paste car link" type="text"
+          id="car_link">
+      </div>
+      <input type="submit" id="btn_upload" class="btn rounded btn-primary" name="action" value="Upload Image" />
+      <input type="submit" id="btn_upload" class="btn rounded btn-secondary" name="action" value="Upload Link" />
     </form>
 
-	  {% if prediction %}
-    <h2> Your Prediction   : <i> {{prediction}} </i></h2>
-      <img src="{{url_for('static',filename = a)}}" height="400px" width="400px">
-	
+    {% if prediction %}
+    <h2> Your Prediction : <i> {{prediction}} </i></h2>
+    <img src="{{url_for('static',filename = a)}}" height="400px" width="400px">
 
-	  {% endif %}
+
+    {% endif %}
 
   </div>
 
 </body>
+
 </html>
